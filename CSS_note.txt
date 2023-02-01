@@ -31,7 +31,7 @@ element yang secara default display block :
 - jika content yang ada di dalam div mempunyai ukuran lebih tinggi dari width dan height yang telah di set di div maka content tersebut akan luber keluar melebihi
   width dan height yang telah di set.  
   
-Overflow : di gunakan jika sebuah kontent pada div lebar dan tinggi nya melebihi dari lebar dan tinggi div yang telah di set.
+Overflow : di gunakan jika sebuah kontent pada div, lebar dan tinggi nya melebihi dari lebar dan tinggi div parent yang telah di set.
 berikut macam2 overflow :
 - visible : secara default overflow yang di gunakan adalah visible yang artinya dia akan memperlihat kan kontent yang keluar dari 
             parent nya (lebar & tinggi content > lebar & tinggi div).
@@ -99,3 +99,37 @@ Float :
 - merupakan sebuah properti pada CSS untuk mengatur posisi sebuah element. Sebuah element bisa di paksa untuk berada di sebelah kiri atau sebelah kanan dari parent/pembungkusnya
   dengan menggunakan properti ini.
 - secara default nilai dari float ini adalah none. opsi nya ada left dan right.
+- jika suatu element di berikan properti float (right/left) maka dia akan keluar dari element parent nya. sehingga element parent nya akan mengecil (decompose) dan tampilannyaa element yang
+  di berikan float akan mengapung di atas element parent nya. hal ini harus di berikan clear supaya element parent nya tidak mengecil.
+- fungsi float ini adalah bisa di gunakan sebagai berikut.
+  1. Text Wrapping : membuat text bersebelahan dengan gambar.
+  2. Image Gallery : membuat jajaran image.
+  3. Multi Column Layout : membuat sebuah kolom layout bisa bersebelahan
+- clear adalah cara untuk memberhentikan float. setiap float harus di brentikan dengan clear kalo ga element di sebelahnya akan ngikut dengan float nya.
+- property clear mempunyai value left,right dan both. gunanya untuk memberhentikan float left, right atau jika kita menggunakan float right dan left maka kita bisa menggunakan both.
+- beberapa cara untuk clear float :
+  1. menggunakan property overflow: auto; . property overflow ini membuat element akan menyesuaikan tinggi dari content.
+  2. Menggunakan div kosong dan di set clear nya di css akan div tersebut. jadi div kosong nya kita tentu tempat nya dimana kita mau memberhentikan float nya, kita tempat nya div
+     kosong nya di sebelah element yang di set float.
+  3. Menggunakan teknik micro clear fix. buka halaman https://nicolasgallagher.com/micro-clearfix-hack/ , copy code css nya dan taruh di file css nya. nanti element yang mau di clear
+     tinggal di tambahkan class cf di element nya.
+	 
+Position :
+- memungkinnkan kita untuk menggeser sebuah element tanpa mempengaruhi element di sekitar nya. secara default value yang ada pada position adalah static.
+- value pada position ada 4 :
+  1. Static :  element yang di berikan value static tidak akan berpengaruh dengan top,bottom,left dan righ properties. static ini akan selalu mengikuti normal flow dari halaman.
+               artinya jika element yang di set position static itu di geser oleh element lain maka secara normal flow dia juga akan bergeser sesuai margin element yang di berikan margin.
+			   dan jika di lihat secara 3 dimensi maka static ini akan terlihat seperti balok yang tersusun rapih.
+  2. Relative : - element yang di berikan value non static (selain value static) dapat mengakses properties top,bottom,left,right. element yang di berikan value Relative ini akan maju 1 langkah ke depan/atas jika di lihat
+                  dari 3 dimensi sehingga ketika kita geser2 element nya menggunakan properties top,bottom,left,right , element sekitar nya tidak akan ikut bergeser.
+				- ketika kita menggerakkan element dengan position relative (properties top,bottom,left,right) ruang yang di tempati oleh element yang di set relative tersebut akan masih ada dengan height dan width yang sama.
+				- ketika kita menggerakkan element dengan position relative (properties top,bottom,left,right) element akan bergerak relatif terhadap posisi semula nya, jadi dia akan bergerak dari posisi semula nya.
+				- jika kita memberikan properti top: 0 dan left: 0 , maka element tidak akan berubah posisi nya.
+  3. Absolute : - ketika kita menggerakkan element dengan position absolute (properties top,bottom,left,right) ruang yang di tempati oleh element yang di set absolute tersebut akan di anggap tidak ada sehingga element 
+                  selanjut nya akan menempati ruang element yang di set posisinya absolute.
+				- ketika kita menggerakkan element dengan posisi absolute, element akan bergerak relatif terhadap posisi dari element parent nya selama element parent nya memiliki posisi yang non static juga.
+				  artinya element parent nya juga harus naik 1 dimensi supaya element yang di set absolute tersebut bisa bergerak relatif terhadap parent nya. 
+				- jika kita memberikan properti top: 0, left: 0 , maka element akan berada di ujung kiri atas dari element parent terdekat nya yang posisi nya non static.
+  4. Fixed : - ketika kita menggerakkan element dengan posisi fixed, element akan bergerak relatif terhadap window atau browser nya. jadi dia tidak akan memperdulikan element parent nya meskipun element parent nya non static.
+             - ketika kita scroll halamannya maka element yang di set posisi nya fixed , element tersebut akan terkunci di posisi nya sehingga akan ikut bergeser sesuai arah scroll nya.
+			 - ini biasa di buat jika kita ingin membuat foter, atau navbar yang stay jika ketika di scroll;

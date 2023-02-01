@@ -1,0 +1,84 @@
+.container {
+    width: 600px;
+    border: 1px solid black;
+    margin: auto;
+    padding: 5px;
+}
+
+.kotak {
+    width: 80px;
+    height: 80px;
+    background-color: salmon;
+    color: white;
+    text-align: center;
+    line-height: 80px;
+    font-size: 30px;
+    margin: 2px;
+    float: right;
+}
+
+.container-multiple {
+    width: 800px;
+    border: 1px solid black;
+    margin: auto;
+    padding: 5px;
+}
+
+.kiri {
+    width:150px;
+    height: 500px;
+    background-color: salmon;
+    float: left;
+}
+
+.tengah {
+    width: 500px;
+    height: 500px;
+    background-color: lightskyblue;
+    float: left;
+}
+
+.kanan {
+    width: 150px;
+    height: 500px;
+    background-color: greenyellow;
+    float: left;
+}
+
+.container-sebelah-gambar {
+    width: 600px;
+    border: 1px solid black;
+    margin: auto;
+    padding: 5px;
+    /* overflow: auto; ini bisa di gunakan untuk membuat container tinggi nya mengikuti content nya.*/
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    float: left;
+    margin: 20px;
+}
+
+.clear {
+    clear: left;
+}
+
+/* clear fix */
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
