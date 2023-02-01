@@ -1,0 +1,101 @@
+display 
+div secara default display nya adalah block
+span secara default display nya adalah inline
+
+element yang secara default display block :
+ - <address> , <article> , <aside> , <blockquote> , <canvas> , <dd> , <div> , <dl> , <dt> , <fieldset> , <figcaption> , <figure> , <footer> , <form>
+   <h1>-<h6> , <header> , <hr> , <li> , <main> , <nav> , <noscript> , <ol> , <p> , <pre> , <section> , <table> , <tfoot> , <ul> , <video> 
+
+- block : - Element HTML yang secara default akan menambahkan line baru ketika di buat.
+          - jika di tidak di atur lebar nya maka lebar default dari element block akan memenuhi lebar dari browser / parent nya.
+		  - kita dapat mengatur tinggi dan lebar dari element block.
+		  - di dalam element block kita dapat menyimpan tag dengan element inline, inline block atau bahkan element block lagi.
+- inline : - element HTML yang secara default tidak menambahkan baris baru ketika di buat. 
+           - lebar dan tinggi element nya sebesar konten yang ada di dalam nya.
+           - kita tidak dapat mengatur tinggi dan lebar dari elemen inline
+           - Margin dan pasdding hanya mempengaruhi element secara horizontal, tidak vertikal. 
+  contoh element yang inline : b, strong, i, em, a,span,sub,sup,button, input,label,select,textarea,img
+- inline-block : - tidak ada element yang secara default memiliki properti display: inline-block
+                 - kita harus ubah secara manual properti tersebut.
+                 - prilaku dasarnya sama dengan inline
+                 - perbedaannya element inline-block dapat kita atur tinggi dan lebar nya.
+				 
+- none : di gunakan untuk menghilangkan sebuah element.
+
+- perhitungan dengan menggunakan % adalah dia mengambil prosentase dari parent element nya.
+  contoh di dalam body kita buat div, di div kita kasih css dengan width 100%, artinya width di div akan mengambil 100% panjang dari element parent nya body.			
+  jika pada element div tersebut prosentase nya di set di atas 100% maka nanti lebar dari div tersebut akan melebihi lebar dari parent nya.
+- jika pada div width di set up panjang nya dan tinggi div tidak di set up maka tinggi pada div tersebut akan mengikut tinggi dari content yang ada di dalam div .
+  begitu juga sebalik nya jika width pada div tidak di set dan tinggi div di set maka lebar div akan mengikuti content yang ada di dalam div tersebut. namun jika 
+  width dan height pada div tidak di set maka lebar dan tinggi div akan mengikutin content yang ada didalam div.
+- jika content yang ada di dalam div mempunyai ukuran lebih tinggi dari width dan height yang telah di set di div maka content tersebut akan luber keluar melebihi
+  width dan height yang telah di set.  
+  
+Overflow : di gunakan jika sebuah kontent pada div lebar dan tinggi nya melebihi dari lebar dan tinggi div yang telah di set.
+berikut macam2 overflow :
+- visible : secara default overflow yang di gunakan adalah visible yang artinya dia akan memperlihat kan kontent yang keluar dari 
+            parent nya (lebar & tinggi content > lebar & tinggi div).
+- Auto : jika panjang & tinggi kontent melebihi panjang & tinggi parent nya (div) yang telah di set maka nanti di div akan di buat ada scroll bar nya. tapi jika tinggi dan lebar
+         content tidak melebihi parent nya (div) maka scroll bar akan secara otomatis ilang.
+- Hidden : jika panjang & tinggi kontent melebihi panjang & tinggi parent nya (div) yang telah di set maka nanti sisa bagian content yang keluar dari parent nya akan di hide
+           dan tidak dapat di akses.
+- Scroll : jika panjang & tinggi kontent melebihi panjang & tinggi parent nya (div) yang telah di set maka nanti di div akan di buat ada scroll bar nya. tapi jika tinggi dan lebar
+           content tidak melebihi parent nya (div) maka scroll bar akan tetap ada walaupun tidak bisa di akses.
+
+
+Konsep Dasar : 
+- Setiap Element di halaman berada di dalam sebuah box(kotak)
+- kita bisa mengatur ukuran dan posisi kotak tersebut.
+- kita bisa memberi warna atau gambar background dari kotak tersebut.
+- CSS box model mendefinisikan kotak yang di hasilkan oleh sebuah element lalu menampilkan sesuai dengan format visual nya.
+- css box model terdiri dari margin,border,padding,content. urutannya dari sebuah box model adalah margin>border>padding>content
+  - margin : area transparant di sekitar kotak (di luar border)
+  - padding : area transparant di dalam kotak (antara kontent dan border)
+  - border : batas di keliling content dan padding.
+  - content : konten sebenarnya di dalam box, bisa berupa text atau gambar.
+
+Margin Overlapping : 
+- jika ada 2 box model yang berposisi sejajar vertikal, box 1 di set margin-bottom 150px dan box 2 di set margin-top 50px maka jarak margin antara
+  box 1 dan 2 adalah 150px. jadi margin ini tidak akan saling menambahkan jarak nya khusus yang vertikal, dia akan selalu pilih jarak yang paling besar (box 1)
+- jika ada 2 box model yang berposisi sejajar horizontal, box 1 di set margin-right 50px, box 2 di set margin-left 30px. maka jarak antara box 1 dan 2 akan menjadi 80px.
+  jadi margin ini akan saling menambahkan jaraknya jika posisi box model sejajar horizontal.
+
+Negatif Margin :
+- jika sebuah box model di set margin nya negatif maka dia akan bergerak ke arah sebalik nya. contoh margin-top di set negatif maka box model akan bergerak ke atas.
+  namun perlu di perhatikan jika menggunakan margin negatif itu, karena jika sebuah box model set negatif margin nya maka box model di sebelah akan ikut bergerak sesuai dengan
+  box model yang di set negatif margin nya.
+
+Margin Auto :
+- jika box model di set margin auto maka posisi nya dia akan berada di tengah dari parent element nya. misal ada div di dalam body dan div tersebut margin nya di set Auto
+  maka div tersebut akan bergeser ke tengah dari element parent nya (body).
+
+Margin setting :
+- margin : value(set atas dan bawah) value(set kiri dan kanan);  
+- margin : value(set atas) value(set kiri dan kanan) value(set bawah);
+- margin : value(set atas) value(set kanan) value(set bawah) value(set kiri)
+
+Padding & Border :
+- lebar dari padding dan border akan berpengaruh kepada lebar box nya. contoh jika ada suatu box di set width nya 300px dan tinggi 300px. jika di box tersebut padding di set 10px,
+  border di set 5px, maka lebar box tersebut adalah 300px + 5px (border kiri) + 10px (padding kiri) + 10px (padding kanan) + 5px (border kanan) jadi 330px width box nya. jadi jika
+  kita ingin tetap lebar box nya di 300px maka kita perlu hitung seperti ini 300px (lebar box) - (5px (border kiri) + 10px (padding kiri) + 10px (padding kanan) + 5px (border kanan))
+  jadi hasil nya 270px, sehingga width dari box tersebut di set 270px.
+- Padding tidak menerima value negatif dan auto, jika padding di set negatif atau auto maka dia tidak akan bereaksi apa2.  
+- format penulisan border -> border : (tebal border) (tipe/style border) (warna garis border); contoh = border: 5px solid black;
+  style border ada 4 : solid , dotted , dashed , double .
+
+Box-sizing : 
+- untuk membuat lebar dari box sesuai dengan yang di set di awal walaupun ada penambahan lebar box dari border dan padding. jadi misal sebuah box di set width nya 300px
+  dan di tambahkan box-sizing: border-box, maka walaupun kita set padding dan border di box tersebut (brapa pun nilai nya) , lebar dari box tersebut akan tetap 300px.
+- syntaks nya adalah -> box-sizing: border-box
+            
+CSS Reset :
+- untuk mereset semua default value yang ada pada body,div,dll. cara nya dengan menggunakan universal selector (*) .
+- contoh -> * { css code } 
+- namun menggunakan css reset universal ini juga ada yang bilang kurang baik karena dia akan memberikan efek dari code yang kita tuliskan ke semua element HTML dan ini akan
+  menyebabkan cost performance . oleh karena ini ada cara yang lebih baik untuk mereset default value yang ada pada element2 HTML yang telah di publikasi kan oleh erik meyer.
+  bisa di buka di goole ketik css reset meyer, setelah di buka page nya bisa di copy paste kan script css yang sudah beliau tuliskan untuk mereset default value dari element2 HTML.
+  
+Float :
+- merupakan sebuah properti pada CSS untuk mengatur posisi sebuah element. Sebuah element bisa di paksa untuk berada di sebelah kiri atau sebelah kanan dari parent/pembungkusnya
+  dengan menggunakan properti ini.
+- secara default nilai dari float ini adalah none. opsi nya ada left dan right.
