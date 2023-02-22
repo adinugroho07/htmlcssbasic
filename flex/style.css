@@ -12,16 +12,39 @@ body{
     display: flex;
     flex-direction: row;
     /* flex-wrap: wrap; */
-    justify-content: center;
-    align-items: center;
 
 }
 
 
 
 .container div {
-    width: 120px;
-    height: 120px;
+    /* width: 120px;
+    height: 120px; */
     background-color: skyblue;
     margin: 2px;
+    flex-grow: 1;
+}
+
+.container div.satu {
+    order: 4;
+    align-self: flex-end;
+    flex-grow: 3;
+}
+
+.container div.dua {
+    order: 3;
+    align-self: flex-start;
+    flex-grow: 1;
+}
+
+.container div.tiga {
+    order: 2;
+    align-self: flex-end;
+    flex-grow: 4;
+}
+
+.container div.empat{
+    order: 1;
+    align-self: flex-start;
+    flex-grow: 2;
 }

@@ -48,9 +48,9 @@ Flexbox :
 		  2. wrap : untuk menurunkan item pada baris jika sudah tidak cukup di baris nya sehingga lebar dan tinggi items tidak mengecil.
 		  3. wrap-reverse :
 	- flex-flow
-	- justify-content : untuk mengatur rata dari element2 items secara horizontal di dalam container. berikut pilihan opsip nya :
-		  1. flex-start : membuat posisi items berada di kiri.
-		  2. flex-end : membuat posisi items berada di kanan.
+	- justify-content : untuk mengatur rata dari element2 items secara horizontal/baris di dalam container. berikut pilihan opsip nya :
+		  1. flex-start : membuat posisi items berada di kiri secara horizontal.
+		  2. flex-end : membuat posisi items berada di kanan secara horizontal.
 		  3. center : membuat posisi items berada di tengah.
 		  4. space-between : membuat antar element terdapat space atau ruang.
 		  5. space-around : membuat pada setiap element baik kiri dan kanan mempunyai space atau ruang dengan ukuran yang sama.
@@ -61,8 +61,36 @@ Flexbox :
 		  3. center : membuat posisi items berada sejajar di tengah secara vertikal.
 		  4. stretch : akan menarik elemnt untuk memenuhi container tapi di element items nya harus tidak di set height nya.
 		  5. baseline : mengatur rata tengah nya berdasarkan tulisan yang ada pada element items.
-	- align-content
-
+	- align-content : untuk mengatur jarak antar items terhadap cross axis atau secara vertikal/kolom di dalam container. 
+	                  properti ini hanya berfungsi jika element items lebih dari 1 baris. berikut beberapa opsi nya :
+		  1. flex-start : membuat posisi items berada di atas secara vertikal.
+		  2. flex-end : membuat posisi items berada di bawah secara vertikal.
+		  3. center : membuat posisi items berada di tengah secara vertikal.
+		  4. stretch : akan menarik elemnt untuk memenuhi container tapi di element items nya harus tidak di set height nya.
+		  5. space-between : membuat element items di pecah, beberapa berada di atas dan beberapa di bawah sehingga membuat space di tengah container secara vertikal.
+		  6. space-around : membuat setiap element items mempunyai space di atas dan di bawah nya dengan ukuran yang sama sehingga ketika di gabung dengan element yang
+		                    lain akan mempunyai ukuran space 2 kali (space bawah dari element di atas dan space atas dari element di bawah ). 
+	
+- beberapa property pada CSS3 yang bisa di gunakan pada items :
+	- order : untuk mengatur order/susunan dari flex item. secara default seluruh element mempunyai nilai order 0, sehingga jika salah satu items di berikan nilai order 
+	          dia akan mempunyai posisi di paling kanan karena nilai order nya paling tinggi (order > 0) .
+	- flex-grow : untuk membuat flex items bertumbuh beberapa kali lipat dari flex item yang ada. misal kita mau menspesifikkan bahwa flex item tertentu lebar nya
+	              10 kali lipat dari flex item yang ada , nah kita bisa menggunakan property ini. contoh : flex-grow: 1; . value yang di isi kan harus angka.
+	- flex-shrink : untuk membuat flex item mengecil beberapa kali lipat dari flex item yang ada. misal kita mau mengubah sebuah flex item yang cukup lebar untuk di kecil 
+	                kan lebar nya, maka kita bisa menggunakan property ini untuk mengecil kan flex item tersebut. contoh : flex-shrink: 1;. value yang di isi kan harus angka.
+	- flex-basis : untuk menspesifikkan initial value dari panjang flex item. jika item tersebut bukan merupakan flexible item maka property flex-basis ini tidak akan bekerja. 
+	               contoh : flex-basis: 200px; maka flex item yang di berikan properti tersebut akan mempunyai lebar sebesar 200px.
+	- flex : shorthand untuk penulisan property flex-grow, flex-shrink, dan flex-basis. syntaks nya -> flex: <flex-grow> <flex-shrink> <flex-basis>;
+	- align-self : mengatur perilaku penjajaran sebuah flex item yang spesific secara vertikal. bedanya dengan align-content adalah kalo align-content itu 1 baris , kalo 
+	               align-self hanya 1 flex item saja. berikut adalah opsi value nya.
+		  1. auto : ini adalah pilihan default. flex item akan menggunakan value yang di define pada align-items property parents atau dia akan strech jika tidak mempunyai
+		            parent container.
+		  2. flex-start : membuat posisi items berada di atas secara vertikal.
+		  3. flex-end : membuat posisi items berada di bawah secara vertikal.
+		  4. center : membuat posisi items berada sejajar di tengah secara vertikal.
+		  5. stretch : akan menarik elemnt untuk memenuhi container tapi di element items nya harus tidak di set height nya.
+		  6. baseline : mengatur rata tengah nya berdasarkan tulisan yang ada pada element items.
+		  
 - perhitungan dengan menggunakan % adalah dia mengambil prosentase dari parent element nya.
   contoh di dalam body kita buat div, di div kita kasih css dengan width 100%, artinya width di div akan mengambil 100% panjang dari element parent nya body.			
   jika pada element div tersebut prosentase nya di set di atas 100% maka nanti lebar dari div tersebut akan melebihi lebar dari parent nya.
