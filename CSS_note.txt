@@ -18,9 +18,50 @@ element yang secara default display block :
 - inline-block : - tidak ada element yang secara default memiliki properti display: inline-block
                  - kita harus ubah secara manual properti tersebut.
                  - prilaku dasarnya sama dengan inline
-                 - perbedaannya element inline-block dapat kita atur tinggi dan lebar nya.
+                 - perbedaannya element inline-block dapat kita atur tinggi dan lebar nya. 				 
 				 
 - none : di gunakan untuk menghilangkan sebuah element.
+
+Flexbox :
+- di gunakan untuk mensejajarkan element secara vertikal atau sejajar dengan lebar antar element yang sama.
+- model layout 1 dimensi yang dapat mengatur jarak dan penjajaran antar item dalam sebuah container. maksud dari 1 dimensi ini adalah kita hanya dapat mengatur 1 dimensi
+  secara horizontal(ke kanan->ke kiri) atau vertikal (keatas->kebawah) atau bisa kita sebut antara baris atau kolom.
+- sebuah module yang menawarkan cara yang efektif untuk menyusun, mensejajarkan dan mendistribusikan jarak antar item di dalam sebuah container, meskipun ukurannya
+  dinamis atau bahkan kita tidak tahu.
+- flexbox ini harus mempunyai element pembungkusnya yang di namakan container/parents. element2 yang ada di dalam nya itu di sebut items/child.
+- main axis adalah untuk men set element secara horizontal/baris, sedangkan untuk men set element secara vertikal/kolom kita sebut cross axis.
+- main size adalah ukuran dari kontainer nya.
+- cross size adalah ukuran dari kolom nya.
+- main start dan main end adalah untuk menentukan awal dan akhir dari element nya secara horizontal.
+- cross start dan cross end adalah untuk menentukan awal dan akhir dari element nya secara vertikal.
+- property -> display: flex -> membuat sebuah element parent/pembungkusnya menjadi flex box dan element2 di dalam nya bisa berprilaku flex juga. 
+- beberapa property yang bisa di gunakan pada flex container.
+	- flex-direction : untuk menentukan arah (horizontal/vertikal) dari item2 pada container. berikut pilihan value nya :
+		  1. row : secara horizontal dengan urutan normal.
+		  2. row-reverse : secara horizontal dengan urutan terbalik.
+		  3. column : secara vertikal dengan urutan normal.
+		  4. column-reverse : secara vertikal dengan urutan terbalik.
+	- flex-wrap : untuk mengatur ketika element items yang ada sudah tidak muat di baris nya sehingga item yang tidak muat tersebut di pindah kan ke baris bawah nya.
+	  jika tidak di berikan flex-wrap maka items akan di paksa untuk fit di dalam container dengan cara lebar dan tinggi items di kecil kan supaya fit di container.
+	  berikut pilihan value nya :
+		  1. nowrap : tidak di wrap.
+		  2. wrap : untuk menurunkan item pada baris jika sudah tidak cukup di baris nya sehingga lebar dan tinggi items tidak mengecil.
+		  3. wrap-reverse :
+	- flex-flow
+	- justify-content : untuk mengatur rata dari element2 items secara horizontal di dalam container. berikut pilihan opsip nya :
+		  1. flex-start : membuat posisi items berada di kiri.
+		  2. flex-end : membuat posisi items berada di kanan.
+		  3. center : membuat posisi items berada di tengah.
+		  4. space-between : membuat antar element terdapat space atau ruang.
+		  5. space-around : membuat pada setiap element baik kiri dan kanan mempunyai space atau ruang dengan ukuran yang sama.
+		  6. space-evenly : membuat jarak antar element sama.
+	- align-items : untuk mengatur kesejajaran antar items secara vertikal. berikut pilihan opsi nya :
+		  1. flex-start : membuat posisi items berada di atas semua start nya.
+		  2. flex-end : membuat posisi items berada di bawah semua start nya.
+		  3. center : membuat posisi items berada sejajar di tengah secara vertikal.
+		  4. stretch : akan menarik elemnt untuk memenuhi container tapi di element items nya harus tidak di set height nya.
+		  5. baseline : mengatur rata tengah nya berdasarkan tulisan yang ada pada element items.
+	- align-content
 
 - perhitungan dengan menggunakan % adalah dia mengambil prosentase dari parent element nya.
   contoh di dalam body kita buat div, di div kita kasih css dengan width 100%, artinya width di div akan mengambil 100% panjang dari element parent nya body.			
