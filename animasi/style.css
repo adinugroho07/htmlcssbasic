@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+}
+
+.kotak {
+    width: 200px;
+    height: 200px;
+    margin: 20px auto;
+    background-color: rgb(9, 124, 169);
+    animation-name: adi-animation;
+    animation-duration: 3s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-direction: normal;
+
+}
+
+@keyframes adi-animation {
+    0% {
+        width: 200px;
+    }
+
+    25% {
+        background-color:skyblue;
+    }
+
+    50% {
+        width: 500px;
+        height: 200px;
+    }
+
+    75% {
+        width: 200px;
+        height: 200px;
+    }
+
+    100% {
+        height: 500px;
+        width: 500px;
+        background-color:slateblue;
+    }
+}

@@ -132,4 +132,198 @@ Position :
 				- jika kita memberikan properti top: 0, left: 0 , maka element akan berada di ujung kiri atas dari element parent terdekat nya yang posisi nya non static.
   4. Fixed : - ketika kita menggerakkan element dengan posisi fixed, element akan bergerak relatif terhadap window atau browser nya. jadi dia tidak akan memperdulikan element parent nya meskipun element parent nya non static.
              - ketika kita scroll halamannya maka element yang di set posisi nya fixed , element tersebut akan terkunci di posisi nya sehingga akan ikut bergeser sesuai arah scroll nya.
-			 - ini biasa di buat jika kita ingin membuat foter, atau navbar yang stay jika ketika di scroll;
+			 - ini biasa di buat jika kita ingin membuat foter, atau navbar yang stay jika ketika di scroll; 
+- element yang di set non-static akan bisa mengakses properti top,bottom,left,right . jika top di set 0, left di set 0 dan right di set 0 maka dia akan membentuk bar besar yang panjang nya
+  akan memenuhi layar. jadi dia seperti di tarik gitu pake left dan right 0. 
+			 
+Z-index :
+- berguna untuk mengatur posisi atau ordering element pada sumbu z. jadi jika ada suatu element di set position nya non static dia jika di lihat secara 3 dimensi maka element tersebut 
+  akan menjadi naik 1 langkah ke sumbu z(tidak sejajar lagi). nah jika kita set beberapa element position nya menjadi non static juga maka kita bisa mengatur ordering element tersebut
+  dengan menggunakan z-index . 
+- semakin tinggi angka yang di masukkan ke z-index maka ordiering posisi nya akan berada di atas. semakin kecil maka dia akan berada di posisi bawah.
+
+Border-Radius :
+- adalah properti di css untuk menumpulkan sudut.
+- jika sebuah div di set width nya 200px maka border radius yang set cuman bisa stengah dari width tersebut (100px) karena jika di set border-radius nya di atas dari width tersebut
+  maka tidak akan ada efek apa2 karena dia akan membentuk bulat seperti bola.
+- kita juga bisa men set ujung2 mana yang harus di tumpulkan :
+  1. border-top-right-radius : untuk menumpulkan ujung atas kanan
+  2. border-top-left-radius : untuk menumpulkan ujung atas kiri
+  3. border-bottom-left-radius: untuk menumpulkan ujung bawah kiri
+  4. border-bottom-right-radius: untuk menumpulkan ujung bawah kanan
+- kita juga bisa men set langsung ujung2 mana yang bisa di tumpulkan di properti border-radius: atas-kiri atas-kanan bawah-kanan bawah-kiri
+
+Opacity : 
+- properti pada css untuk mengatur transparansi dari sebuah element.
+- nilai pada opacity ini di mulai dari 0 hingga 1. artinya kalo 0 brarti transparansi nya 0% dan jika 1 brarti transparansi nya 100%.
+- element yang di bungkus oleh element lagi dan element pembungkus tersebut di set opacity maka element yang di bungkus tersebut akan ikut transaparant.
+- jika child element atau element yang di bungkus juga di berikan opacity maka nilai dari opacity nya akan di mulai dari nilai opacity parent/element pembungkus nya.
+  misal element pembungkus set opacity nya 0.5 , jika child element di set nilai opacity nya 0.5 juga maka 0.5 tersebut akan berlaku dari 0.5 opacity parent nya.
+- opacity ini bisa di gunakan untuk background element baik gambar atau hanya color saja.
+- ada cara lain untuk memberikan opacity, yaitu dengan men set properti background-color RGBA (Red Green Blue Alpha) dan HSLA (Hue Saturation Lightness Alpha). namun ini hanya
+  berlaku untuk element dengan background-color, untuk background-image tidak berlaku. cth : background-color: rgba(255,102,0,0.5); nilai 0.5 di blakang untuk mengatur transparansi nya
+  sedangkan untuk angka yang di depan nya untuk mengatur warna nya. begitu juga untuk HSLA -> background-color: hsla(24,100%,68%,0.5); nilai 0.5 di blakang untuk mengatur transparansi
+  sedangkan untuk di depannya untuk mengatur warna background nya. untuk kode2 rgba dan hsla ini silahkan di cari di color pallete di google.
+  
+Box-shadow & Text-Shadow: 
+- untuk memberikan bayangan di blakang pada suatu element.
+- pattern nyaa adalah berikut : inset(optional) box-shadow: x-offset y-offset blur spread(optional) color;
+- berikut penjelasannya :
+  1. x-offset : untuk menggerakkan bayangan di sumbu x (vertikal)
+  2. y-offset : untuk menggerakkan bayangan di sumbu y (horizontal)
+  3. blur : untuk mengatur tingkat blur nyaa bayangan
+  4. spread untuk mengatur tingkat ketebalan/ukuran bayangan
+  5. color : untuk mengatur warna bayangannya. ini bisa menggunakan rgba() supaya dia ada opacity nya.
+  6. inset : untuk membuat bayanganyannya berada di dalam element.
+- box shadow ini juga bisa kita gunakan sebagai border. cara nya adalah dengan men set x-offset dan y-offset 0, blur nya di set 0 juga untuk mendapatkan solid border nya
+  namun spread nya di isi kan value untuk memberikan ketebalan border. contoh: box-shadow: 0px 0px 0px 10px rgba(0,0,0,075);
+- box shadow ini juga bisa di buat multiple. cara nya adalah berikut -> box-shadow: value shadow1, value shadow2 , value shadow3 , dan seterusnya.
+  contoh:   box-shadow: 0px 0px 0px 10px rgba(0,0,0,075) , 0px 0px 0px 15px red , 0px 0px 0px 20px blue , 0px 0px 0px 30px green;
+- pada text-shadow tidak ada value untuk men set inset dan spread, selebih nyaa sama dengan box-shadow.
+
+Gradient :
+- untuk memberikan warna gradasi kepada sebuah element. ada 2 tipe yang bisa di gunakan dalam gradient ini.
+  1. linear-gradient : untuk memberikan gradasi warna secara garis lurus
+  2. radial-gradient : untuk memberikan gradasi warna secara melingkar.
+- gradient ini bukan merupakan property CSS3, namun adalah value untuk mengisi background image, jadi background image selain bisa di isi oleh image dia juga bisa di isi kan oleh
+  gradient value.
+- di dalam pengisian value warna di gradient ini kita juga bisa memasukkan rgba dan hsla .  
+Linear Gradient:
+- syntaks : background-image: liean-gradient(arah(satuan deg/degree)/arah , awal warna color-stop(optional),warna ke dua color-stop(optional),warna ke tiga color-stop(optional),... warna ke n color-stop(optional));
+- contoh : background-image: liean-gradient(0deg , red,blue,green);  , contoh lain : liean-gradient(to right , red 63%, green 80%);
+- penjelasan :
+  1. arah : untuk mengatur arah gradient. dalam memberikan value arah ini kita bisa menggunakan degree atau fix value.
+  - 0 deg : dari atas ke bawah;
+  - 45 deg : dari kiri atas ke kanan bawah;
+  - 90 deg : dari kiri ke kanan;
+  - 180 deg : dari bawah ke atas;
+  - 270 deg : dari kanan ke kiri;
+  fix value :
+  - to bottom : dari atas ke bawah
+  - to top : dari bawah ke atas
+  - to left : dari kanan ke kiri
+  - to right : dari kiri ke kanan.
+  - to left top : dari atas kiri ke bawah kanan
+  - to left bottom : dari bawah kiri ke atas kanan
+  - to right top : dari kanan atas ke bawah kiri
+  - to right bottom : dari kanan bawah ke kiri atas
+Radial Gradient:
+- berbeda dengan linear, gradial dia bentuk nyaa melingkar. warna awal yang di set akan menjadi warna center nya dan warna selanjutnya akan menjadi warna border nya.
+- syntaks : background-image: radial-gradient(<tipe> <jangkauan> at <posisi-y> <posisi-x> ,<warna-awal> color-stop, <warna-kedua> color-stop, <warna-ke n> color-stop);
+- tipe di radial gradient ini ada 2, circle dan ellipse namun secara default value yang di isi kan adalah circle.
+- jangkauan adalah jarak dari pusat gradient ke sisi terluar nya. jangkauan ini ada tipe nya.
+  1. closest-corner : jarak dari pusat gradient ke sudut terdekat element.
+  2. closest-side : jarak dari pusat gradient ke sisi terdekat element.
+  3. farthest-corner : jarak dari pusat gradient ke sudut terjauh element.
+  4. farthest-side : jarak dari pusat gradient ke sisi terjauh element.
+- posisi x dan y bisa di isi kan value berikut :
+  posisi y : top,center,bottom, px
+  posisis x : left,center,right, px
+  
+@Font-face :
+- adalah properti pada css3 jika kita ingin menggunakan font yang sudah kita donwload ke local pc kita.
+- @font-face ini nanti akan berisikan url lokasi file font nya (extensi nya tff atau woff atau woff2) dan font-familiy (nama font familiy ini bisa bebas tapi di recomendasikan
+  di samakan dengan nama font ketika download nya). nama yang sudah di input kan di font familiy tersebut nanti yang akan di gunakan untuk merubah font style nya lewat properti
+  font-family.
+contoh :
+@font-face{
+	font-family: "nama font bebas";
+	src: url('lokasi file font yang sudah kita donwload dengan ekstensi tff,woff') format('truetype');
+}
+
+h1{
+	font-family: "nama font yang di @font-face"
+}
+
+- extensi paling baik untuk font adalah woff karena lebih ringan di banding kan tff.
+- kita juga bisa menconvert file font tff ke woff dengan menggunakan css generator. silahkan google font apa saja yang mempunyai css generator nya.
+- contoh font-family : font-family : "arial narrow", arial,sans-serif; . itu artinya dia akan mencari font arial narrow dulu, jika tidak ketemu maka akan mencari font
+  arial dan jika tidak ketemu juga akan mencari font sans-serif .
+  
+Vendor Prefix :
+- teknik di css 3 untuk membuat semua syntaks CSS3 kita compatible di semua browser. jadi ini adalah syntaks khusus yang harus di tambahkan untuk beberapa properti di CSS3 .
+- berikut adalah syntaks vendor prefix.
+  1. -webkit-<properti-css3> -> untuk compatible di browser Chrome,Safarai,Opera versi terbaru.
+  2. -moz-<properti-css3> -> untuk compatible di browser Firefox
+  3. -ms-<properti-css3> -> untuk compatible di browser Internet Explorer
+  4. -o-<properti-css3> -> untuk compatible di browser Opera versi terdahulu
+- untuk mengecek properti CSS3 mana yang membutuhkan prefix kita bisa melihat pada web ini https://shouldiprefix.com/ atau https://caniuse.com/ atau https://pleeease.io/play/.
+- contoh :
+.example {
+  -webkit-filter: grayscale(50%); /* Ch 23+, Saf 6.0+, BB 10.0+ */
+          filter: grayscale(50%); /* FF 35+ */
+}
+
+Filter:
+- properti pada CSS3 yang di gunakan untuk memberikan efek visual pada gambar, background atau border.
+- filter ini perlu di berikan vendor prefix supaya bisa berjalan compatible di semua browser.
+- syntaks -> filter: <tipe-filter>
+- berikut adalah tipe2 dari filter :
+  1. blur
+  2. brightness
+  3. contrast
+  4. saturate
+  5. grayscale
+  6. sepia
+  7. hue rotate
+  8. invert
+  9. opacity
+  10. drop-shadow
+- efek filter ini bisa multiple cara nya berikut -> filter: blur() grayscale() sepia();
+
+Transform: 
+- properti pada CSS3 yang memungkinkan kita dapat memanipulasi format visual dari element HTML. transform ini terdapat di 2D dan 3D .
+- syntaks -> transform: <fungsi>;
+- berikut adalah fungsi2 nya :
+  1. scale(angka)/scaleX(angka)/scaleY(angka) -> untuk memperbesar dan memperkecil
+  2. rotate(deg)/rotateX(deg)/rotateY(deg) -> untuk memutar
+  3. skew(deg)/skewX(deg)/skewY(deg) -> untuk membuat element menjadi condong
+  4. translate(px)/translateX(px)/translateY(px) -> untuk mengubah posisi element.
+  
+Transition : 
+- properti pada CSS3 yang memungkinkan kita untuk mengubah nilai dari properti HTML secara halus.
+- syntaks -> transition: [property] <durasi> [fungsi][delay];
+- durasi ini dalam satuan s(second)/ms(milisecond)
+- property ini untuk menentukan property pada CSS3 apa saja yang akan di lakukan transisi. secara default adalah all.
+  berikut adalah properti pada CSS3 yang bisa di rubah : background-color , background-position , background-size , border , color , filter , font-size , line-height,
+                                                         top, left, bottom, right, margin, padding, width, height, opacity, transform, word-spacing, letter-spacing.
+  property yang tidak bisa : font-family, display, position.
+- fungsi di transisi ini di sebut juga timing function. ada beberapa function yang bisa di gunakan namun secara default fungsi nya adalah ease.
+  1. ease : specifies a transition effect with a slow start, then fast, then end slowly (this is default)
+  2. ease-in : specifies a transition effect with a slow start
+  3. ease-out : specifies a transition effect with a slow end
+  4. ease-in-out : specifies a transition effect with a slow start and end
+  5. linear : specifies a transition effect with the same speed from start to end
+  6. cubic-bezier(w,x,y,z) : lets you define your own values in a cubic-bezier function. setting sendiri kapan fast, slow dll.
+  
+Animation:
+- properti pada CSS3 yang memungkinkan kita untuk membuat animasi pada HTML element tanpa menggunakan javascript atau flash
+- pada animasi ini kita akan menggunakan bantuan @Keyframe dimana keyframe ini untuk menentukan perubahan2 yang akan kita lakukan di element HTML.
+- syntaks : 
+@Keyframe nama-keyframe { 
+	from: {properti-css3 yang akan di ubah pada awal}
+	to: {properti-css3 yang akan di ubah pada akhir}
+}
+- from ini merepresentasikan 0%(start) dan to ini merepresentasikan 100% (complete)
+- kita jika bisa menentukan keyframe nyaa by prosentasenya (0%,25%,50%,75%,100%).
+- berikut adalah property yang terkait Animation :
+  1. animation-name : nama animasi yang di set pada property @Keyframe.
+  2. animation-duration : durasi yang di butuhkan oleh animasi dari 0% hingga 100%.
+  3. animation-delay : delay (s/ms) yang di butuhkan sebelum start animasi.
+  4. animation-iteration-count : untuk menentukan brapa kali animasi tersebut harus berjalan. jika kita ingin animasi berulang terus bisa di isi kan infinite.
+  5. animation-direction : untuk menentukan arah urutan jalannya animasi. ada beberapa value yang bisa di gunakan.
+     - normal - The animation is played as normal (forwards). This is default
+	 - reverse - The animation is played in reverse direction (backwards)
+	 - alternate - The animation is played forwards first, then backwards
+	 - alternate-reverse - The animation is played backwards first, then forwards
+  6. animation-timing-function : property yang di gunakan untuk menentukan kecepatan curving(berputar2 atau bergeser,dll) dari animasi nya.
+  7. animation-fill-mode : property untuk menspesifikan style untuk target element ketika animasi belum berjalan dan ketika animasi sesudah berjalan. jadi intinya properti ini
+     akan menset style element sebelum animasi di mulai atau setelah animasi selesai style nyaa akan seperti apa, apakah style akhir element ikut sesuai urutan frame, atau style
+	 akhir element akan ikut ke style pada frame pertama. berikut adalah contoh2 value nya:
+    - none - Default value. Animation will not apply any styles to the element before or after it is executing
+	- forwards - The element will retain the style values that is set by the last keyframe (depends on animation-direction and animation-iteration-count)
+	- backwards - The element will get the style values that is set by the first keyframe (depends on animation-direction), and retain this during the animation-delay period
+	- both - The animation will follow the rules for both forwards and backwards, extending the animation properties in both directions
+  8. animation : untuk membuat shorthand animasi.
+     animation : [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state];
+  9. animation-play-state : untuk menentukan animasi nya berjalan atau tidak, jika di pause maka animasi tidak akan berjalan. pause ini nanti bisa di gunakan pada javascript.
