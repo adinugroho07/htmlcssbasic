@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+}
+
+/* Navbar */
+nav {
+    display: flex;
+    background-color:teal;
+    justify-content: space-around;
+    color: yellow;
+    height: 50px;
+    align-items: center;
+}
+
+nav .logo {
+    font-family: 'Pacifico', cursive;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 40%;
+    justify-content: space-evenly;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: yellow;
+    font-size: 0.8em;
+}
+
+nav ul li a:hover {
+    color:rgb(201, 201, 33);
+    padding-bottom: 5px;
+    border-bottom: 2px solid black;
+}
+
+/* Hamburger Menu */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    height: 20px;
+    justify-content:space-between;
+    position: relative;
+}
+
+.menu-toggle label {
+    display:none;
+}
+
+.menu-toggle input {
+    position: absolute;
+    width: 40px;
+    height: 28px;
+    left: -6px;
+    top: -3px;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 9999;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color:rgb(88, 227, 227);
+    border-radius: 3px;
+    transition: 0.5s;
+}
+
+/* Hamburger Animasi */
+/* 
+cari anak ke brapa dari class .menu-toggle . akan di hitung dari element pertama yang merupakan child dari element dengan
+class .menu-toggle  
+*/
+.menu-toggle span:nth-child(3) {
+    /* ini untuk membuat sumbu rotate di mulai dari sumbu x 0 dan sumbu y 0 */
+    transform-origin: 0 0;
+}
+
+/* ~ sibling  */
+.menu-toggle input:checked ~ span:nth-child(3){
+    background-color:white;
+    transform: rotate(45deg) translate(-1px , -1px);
+}
+
+.menu-toggle span:nth-child(5) {
+    /* ini untuk membuat sumbu rotate di mulai dari sumbu x 0 dan sumbu y 0 */
+    transform-origin: 0 100%;
+}
+
+/* ~ sibling  */
+.menu-toggle input:checked ~ span:nth-child(5){
+    background-color:white;
+    transform: rotate(-45deg) translate(-1px , 0);
+}
+
+/* ~ sibling  */
+.menu-toggle input:checked ~ span:nth-child(4){
+    transform: scale(0);
+    opacity: 0;
+}
+
+
+
+/* Responsive */
+/* ukuran Tablet */
+@media screen and (max-width:768px) {
+    nav ul {
+        width:50%;
+    }
+}
+
+/* ukuran mobile */
+@media screen and (max-width:576px) {
+    nav ul {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 80%;
+        height: 100vh;
+        justify-content: space-evenly;
+        flex-direction: column;
+        align-items: center;
+        background-color:teal;
+        z-index: -1;
+        transform: translateX(-100%);
+        transition: all 1s;
+        opacity: 0;
+    }
+
+    nav ul.slide {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+}
+

@@ -137,6 +137,9 @@ Negatif Margin :
 Margin Auto :
 - jika box model di set margin auto maka posisi nya dia akan berada di tengah dari parent element nya. misal ada div di dalam body dan div tersebut margin nya di set Auto
   maka div tersebut akan bergeser ke tengah dari element parent nya (body).
+- jika suatu element pembungkus nyaa di set display nya flex, element di dalam element pembungkus nyaa tersebut di set margin:auto; maka dia akan secara otomatis centring
+  baik secara horizontal dan vertikal. jika tidak di set display:flex pada element pembungkus nya , maka margin yang di set auto di element yang di bungnkus nya itu hanya
+  centering secara horizontal.
 
 Margin setting :
 - margin : value(set atas dan bawah) value(set kiri dan kanan);  
@@ -396,3 +399,17 @@ Animation:
   8. animation : untuk membuat shorthand animasi.
      animation : [name] [duration] [timing-function] [delay] [iteration-count] [direction] [fill-mode] [play-state];
   9. animation-play-state : untuk menentukan animasi nya berjalan atau tidak, jika di pause maka animasi tidak akan berjalan. pause ini nanti bisa di gunakan pada javascript.
+
+CSS Combinator.
+- kita bisa menambahkan lebih dari 1 simple selector.
+- contoh lebih jelasnya bisa di cek di web ini https://www.w3schools.com/css/css_combinators.asp
+- ada beberapa pilihan CSS Combinator :
+1. descendant selector (space) : akan select element yang merupakan keturunan dari suatu element tertentu.
+   contoh : div p { background-color: yellow; } . brarti setiap element p di dalam div akan berubah background-color nya menjadi kuning.
+2. child selector (>) : akan select element yang merupakan child dari element tertenu.
+   contoh : div > p { background-color: yellow; } . brarti dia akan merubah background-color setiap element p yang merupakan child dari element div. jika di bawah nyaa div itu ada 
+   element lain misal seperti span dan di dalam span tersebut ada element p maka element p tidak termasuk ke dalam child nya div, namun dia adalah child dari span.
+3. adjacent sibling selector (+) : akan select element yang secara langsung urutannya setelah element tertenu.
+   contoh : div + p { background-color: yellow; } . element pertama setelah element div yang mempunyai child p akan berubah warna nya menjadi kuning.
+4. general sibling selector (~) : akan select semua element yang merupakan saudara dari element tertentu.
+   contoh : div ~ p { background-color: yellow; } . semua element p  setelah div akan berubah warna nya menjadi kuning. 
