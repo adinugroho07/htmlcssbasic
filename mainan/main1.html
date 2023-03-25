@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pertamina {
+            margin: auto;
+            width: 380px;
+            height: 440px;
+            position: relative;
+            overflow: hidden;
+        }
+         
+        .red {
+            -moz-transform: skew(33deg); /* Firefox */
+            -webkit-transform: skew(33deg); /* Chrome & Safari */
+            -o-transform: skew(33deg); /* Opera */
+            -ms-transform: skew(33deg); /* IE9 */
+            transform: skew(33deg);
+            background: #fd0017;
+            border-radius: 0 19px 0 19px;
+            height: 99px;
+            left: 231px;
+            position: absolute;
+            top: 72.5px;
+            width: 116px;
+        }
+         
+        .green {
+            -moz-transform: skew(-33deg); /* Firefox */
+            -webkit-transform: skew(-33deg); /* Chrome & Safari */
+            -o-transform: skew(-33deg); /* Opera */
+            -ms-transform: skew(-33deg); /* IE9 */
+            transform: skew(-33deg);
+            background: #9fe400;
+            border-radius: 19px 0 19px 0;
+            height: 98px;
+            left: 231px;
+            position: absolute;
+            top: 194.5px;
+            width: 116px;
+        }
+         
+        .blue {
+            -moz-transform: skew(-33deg); /* Firefox */
+            -webkit-transform: skew(-33deg); /* Chrome & Safari */
+            -o-transform: skew(-33deg); /* Opera */
+            -ms-transform: skew(-33deg); /* IE9 */
+            transform: skew(-33deg);
+            background: #0073fe;
+            border-radius: 19px 0 19px 0;
+            height: 165.5px;
+            left: 55px;
+            position: absolute;
+            top: 194.5px;
+            width: 116px;
+        }
+
+        .blue:after {
+            -moz-transform: skew(-2deg); /* Firefox */
+            -webkit-transform: skew(-1deg); /* Chrome & Safari */
+            -o-transform: skew(0deg); /* Opera */
+            -ms-transform: skew(-1deg); /* IE9 */
+            transform: skew(-1deg);
+            background-color: #fff;
+            border-top-left-radius: 9px;
+            box-shadow: -9px 0 0 #0073fe;
+            content: "";
+            height: 13px;
+            position: absolute;
+            right: -13px;
+            top: 0;
+            width: 13px;
+        }
+
+        .text {
+            bottom: -50px;
+            font-family: "Arial Black", Arial, sans-serif;
+            font-size: 56.5px;
+            font-weight: 900;
+            left: -1px;
+            position: absolute;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="pertamina">
+        <div class="red"></div>
+        <div class="green"></div>
+        <div class="blue"></div>
+        <p class="text">Pertamina</p>
+    </div>
+</body>
+</html>

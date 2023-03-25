@@ -90,7 +90,108 @@ Flexbox :
 		  4. center : membuat posisi items berada sejajar di tengah secara vertikal.
 		  5. stretch : akan menarik elemnt untuk memenuhi container tapi di element items nya harus tidak di set height nya.
 		  6. baseline : mengatur rata tengah nya berdasarkan tulisan yang ada pada element items.
-		  
+
+CSS GRID :
+- module CSS baru yang berguna untuk mendefinisikan sistem layout baru berbentuk grid dalam 2 dimensi (secara baris dan kolom)	
+- jadi kalo kemarin ada yang namanya flex dimana flex ini untuk mengatur element secara 1 dimensi bisa di pilih mau horizontal/baris atau vertikal/column, nah grid ini
+  bisa mengatur 2 secara 2 dimensi dan di dalam grid juga kita bisa menggunakan flex.
+- grid container adalah element pembungkus grid yang di definisikan dengan properti-css3 berikut display:grid;
+- grid item adalah element2 yang berada 1 level di bawah element pembungkus nya yang berupa grid container.
+- grid line adalah garis horizontal(kolom) atau vertikal(baris) yang memisahkan grid menjadi beberapa bagian dan di tandai dengan angka.
+- grid cell adalah perpotongan/pertemuan antara baris dan kolom di dalam grid.
+- grid area kumpulan grid cell yang lebih dari satu sehingga membentuk kotak.
+- grid track adalah ukuran/jarak antara 2 grid line, bisa horizontal(kolom) atau vertikal (baris).
+- grid gap jarak antar grid track/cell .
+- nilai di dalam grid itu ada explicit dan implicit. explicit itu jika kita secara jelas mendefinisikan value dari grid nya (kolom dan baris).
+  untuk implicit adalah ukuran grid yang value (baris dan kolom) nya di isi oleh value sisa dari value yang sudah di isi kan secara explicit.
+  misal: grid-template-columns: 10px 20px auto; -> jika lebar container nya adalah 50px maka kolom 1 dan 2 merupakan explicit sedangkan kolom 3 merupakan implicit karena lebar nya
+         kolom nyaa adalah sisa dari lebar kolom 1 dan kolom 2 (10px + 20px) - 50px lebar container hasil nya 30px.
+- line names adalah nama yang bisa di berikan pada track. jadi nama line nya bisa kita ubah2.
+  contoh : grid-template-columns: [awal] 20px [kedua] 30px; -> line di kolom 1 akan bernama awal dan line di kolom 2 akan bernama kedua.
+- fr adalah fraction atau pecahan.
+- di grid ini kita bisa menggunakan special function dan keyword:
+  1. repeat() : untuk mengulang value. syntaks -> repeat(number of columns/rows, the column width we want);
+     contoh : grid-template-rows: repeat(4 , 25px) -> itu sama dengan code berikut -> grid-template-rows: 25px 25px 25px 25px;
+  2. min-content() & max-content() : untuk menentukan lebar cell atau grid track berdasarkan content. perbedaan min-content dan max-content adalah kalo min dia akan mengambil
+                                     ukuran yang minimal dari content di cell tersebut, jika content yang ada di dalam nya ada banyak maka dia akan memilih lebar yang paling besar, 
+									 sedangkan max dia akan ambil ukuran dari seluruh content tanpa di pecah.
+  3. minmax() : untuk menentukan ukuran maximal dan minimal dari sebuah grid track/cell
+  4. auto-fill() & auto-fit() : untuk menentukan jumlah item untuk berada pada grid track. ini bisa di gunakan di responsive
+- di dalam grid ada beberapa hal yang perlu di perhatikan.
+  1. Grid Columns : item pada grid yang di susun secara vertikal.
+  2. Grid Rows : item pada grid yang di susun secara horizontal.
+  3. Grid Gaps : space di antara item2 pada grid.
+	- column-gap : gap/spasi di antara item2 grid secara vertikal.
+	- row-gap : gap/spasi di antara item2 grid secara horizontal.
+	- gap : gap/spasi di antara item2 secara vertikal dan horizontal.
+  4. Grid Lines : garis di antara columns dan baris yang di bagi menjadi berikut :
+    - Columns Lines : garis di antara columns items
+	- Row Lines : garis di antara baris items	 
+- berikut adalah property pada container grid yang penting :
+	- grid-template : shorthand untuk emndefinisikan grid-template-rows, grid-template-columns dan grid-template-areas dalam 1 deklarasi.
+	  contoh : grid-template: <grid-template-rows> | <grid-template-columns> / <grid-template-areas> ;
+	- grid-auto-columns : untuk mengatur ukuran columns grid scara implicit yang tidak di atur oleh grid secara explicit.
+	- grid-auto-rows : untuk mengatur ukuran rows grid scara implicit yang tidak di atur oleh grid secara explicit.
+	- grid-auto-flows : untuk mengatur penempatan item/cell pada grid track dan ini termasuk juga untuk di definisikan secara implicit.
+    - grid-template-columns : untuk mendefinisikan brapa kolom yang ingin di buatkan di dalam grid dan kita juga bisa set lebar nya. jika kita mau untuk seluruh
+	  lebar kolom nya sama, maka kita set lebar nya auto. 
+	  contoh : grid-template-columns: auto auto auto auto; -> membuat 4 kolom pada grid dengan lebar di setiap kolom nyaa sama rata.
+	           grid-template-columns: 80px 200px auto 40px; -> membuat 4 kolom pada grid dengan lebar kolom pertama 80px, kolom kedua 200px, kolom ketiga auto, kolom ke empat 40px.
+	- grid-template-rows : untuk mendefinisikan brapa tinggi dari setiap baris tersebut.
+	  contoh : grid-template-rows: 80px 200px; -> mendefinisikan baris pertama pada grid tinggi nyaa adalah 80px dan baris kedua adalah 200px.
+	- justify-content : untuk mengatur posisi seluruh grid container secara horizontal. ini baru bisa di lakukan jika ukuran total grid lebih kecil dari ukuran container nya 
+	  (biasanya ketika ukuran grid items nya dalam ukuran fix px). berikut adalah opsinya :
+	  1. start : membuat posisi items2 pada grid berada di sebelah kiri secara horizontal.
+	  2. end : membuat posisi items2 pada grid berada di sebelah kanan secara horizontal.
+	  3. space-evenly : membuat posisi items2 pada grid yang secara horizontal mempunyai lebar pada sisi kiri dan kanan nya sama.
+	  4. space-around : membuat posisi items2 pada grid yang secara horizontal mempunyai space yang cukup lebar di sisi kiri dan kanannya sehingga ini membuat ruang kosong 
+	     di sisi kiri dan kanan items.
+	  5. space-between : hampir sama dengan space evelny namun lebar pada sisi kiri dan kanan nyaa akan saling bertambah, bukan menjadi satu.
+	  6. center : membuat posisi items2 pada grid berada di tengah secara horizontal.
+	- align-content : untuk mengatur posisi seluruh grid container secara vertikal. ini baru bisa di lakukan jika ukuran total grid lebih kecil dari ukuran container nya 
+	  (biasanya ketika ukuran grid items nya dalam ukuran fix px). berikut adalah opsinya :
+	  1. start : membuat posisi items2 pada grid berada di sebelah atas secara vertikal.
+	  2. end : membuat posisi items2 pada grid berada di sebelah bawah secara vertikal.
+	  3. space-evenly : membuat posisi items2 pada grid yang secara vertikal mempunyai lebar pada sisi atas dan bawah nya sama.
+	  4. space-around : membuat posisi items2 pada grid yang secara vertikal mempunyai space yang cukup lebar di sisi atas dan bawahnya sehingga ini membuat ruang kosong 
+	     di sisi atas dan bawah items.
+	  5. space-between : hampir sama dengan space evelny namun lebar pada sisi atas dan bawah nyaa akan saling bertambah, bukan menjadi satu.
+	  6. center : membuat posisi items2 pada grid berada di tengah secara vertikal.
+	- justify-items: mensejajarkan items grid pada sumbu horizontal. berikut opsi nya : start | end | center | strech
+	- align-items: mensejajarkan items grid pada sumbu vertikal. berikut opsi nya : start | end | center | strech
+	- place-items : shorthand untuk menuliskan justtify-items dan align-items dalam satu deklarasi.
+	  contoh : place-items: <align-items> <justify-items>;
+	- place-content : shorthand untuk menuliskan justify-content dan align-content dalam 1 deklarasi.
+	  contoh : place-content: <justify-content> <align-content>
+- berikut adalah property pada items grid yang penting :
+	- grid-column-start : untuk menentukan tempat dari grid item dengan mengacu pada nomor atau nama grid line yang spesifik secara vertikal
+	- grid-column-end : untuk menentukan tempat dari grid item dengan mengacu pada nomor atau nama grid line yang spesifik secara vertikal
+	- grid-row-start : untuk menentukan tempat dari grid item dengan mengacu pada nomor atau nama grid line yang spesifik secara horizontal
+	- grid-row-end : untuk menentukan tempat dari grid item dengan mengacu pada nomor atau nama grid line yang spesifik secara horizontal
+	- justify-self : untuk mengatur posisi item pada sebuah cell terhadap sumbu horizontal.
+	- align-self : untuk mengatur posisi item pada sebuah cell terhadap sumbu vertikal.
+    - grid-column : untuk mendefinisikan di kolom mana kita akan menempatkan item tersebut.
+	  contoh : grid-column: 1 / 5; -> item yang di berikan properti ini akan menempati posisi kolom 1 (start) hingga kolom sebelum 5 jadi kolom 4 (end). 
+	           grid-column: 1 / span 3; -> item yang di berikan properti ini akan menempati posisi kolom 1 (start) dan dari kolom 1 tersebut di span 3 kolom sehingga dia akan 
+			                               berhenti pada kolom 3 (end), jadi akan tetep makan 3 kolom saja.
+	- grid-row : untuk mendefinisikan di baris mana kita akan menempatkan item tersebut.
+	  contoh : grid-row: 1 / 4; -> item yang di berikan properti ini akan menempati posisi baris 1 (start) hingga baris sebelum 4 jadi baris 3 (end).
+	           grid-row: 1 / span 2; -> item yang di berikan properti ini akan menempati posisi baris 1 (start) dan dari baris 1 tersebut di span 2 baris sehingga dia akan 
+			                            berhenti pada baris 2 (end), jadi akan tetep makan 2 baris saja.
+	- grid-area : merupakah shorthand untuk mendefinisikan properti berikut grid-row-start, grid-column-start, grid-row-end and the grid-column-end.
+	              namun grid-area ini juga bisa di masukkan value berupa nama grid yang sudah di definisikan pada property grid-template-areas.
+	- grid-template-areas : untuk mendefinisikan pola grid baik secara vertikal maupun horizontal berdasarkan area yang sudah kita definisikan.
+	  contoh : grid-template-areas: 'header header header header header header'
+									'menu main main main right right'
+									'menu footer footer footer footer footer'; -> pada code di samping grid yang terbuat adalah kolom 6 dan baris nya 3. 
+									                                              setiap items grid yang di berikan property grid-area:<nama-template-grid> akan 
+																				  secara otomatis menempati ruang yang telah di sedia kan , misal pada item 1
+																				  grid-area nya di set header, maka item 1 akan menempati posisi header jadi dia akan 
+																				  mempunya lebar 6 kolom dan tinggai 1 baris karena header di set 6 kolom. 
+																				  misal pada item 2 di set grid-area nya menu, maka dia akan menempati posisi menu, 
+																				  jadi dia akan mempunyai tinggi 2 baris dan lebar 1 kolom.
+				
+	   
 - perhitungan dengan menggunakan % adalah dia mengambil prosentase dari parent element nya.
   contoh di dalam body kita buat div, di div kita kasih css dengan width 100%, artinya width di div akan mengambil 100% panjang dari element parent nya body.			
   jika pada element div tersebut prosentase nya di set di atas 100% maka nanti lebar dari div tersebut akan melebihi lebar dari parent nya.
