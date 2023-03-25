@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            background-color: #d4d0d0;
+            border: 5px solid black;
+            margin: 30px auto;
+            width: 600px;
+            height: 600px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .balok1 {
+            background-color: #FF420E;
+            width: 200px;
+            height: 200px;
+            border-radius: 0 100% 0 100%;
+            position: absolute;
+            left: 99.5px;
+        }
+        
+        .balok2 {
+            background-color: #80BD9E;
+            width: 200px;
+            height: 200px;
+            border-radius: 0;
+            position: absolute;
+            top: 153.9px;
+            left: 199.4px;
+            border-radius: 100% 0;
+            transform: rotate(-45deg);
+            z-index: 999;
+        }
+        
+        .balok3 {
+            background-color: #89DA59;
+            width: 200px;
+            height: 200px;
+            border-radius: 100% 0 100% 0;
+            position: absolute;
+            right: 91px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="balok1"></div>
+        <div class="balok2"></div>
+        <div class="balok3"></div>
+    </div>
+</body>
+</html>
